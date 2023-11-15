@@ -1,0 +1,16 @@
+.my-chartist-tooltip {
+  fill-opacity: 1 !important;
+  stroke-width: 0px;
+  stroke: red;
+  transition: all 0.2s linear;
+}
+
+.blink {
+  animation: blinking-input 2s linear infinite;
+}
+
+@keyframes blinking-input {
+  50% {
+    opacity: 0;
+  }
+}

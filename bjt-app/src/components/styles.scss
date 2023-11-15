@@ -1,0 +1,103 @@
+.ct-vdbchart .ct-line {
+  //χρειάζεται να ορίσω ξεχωριστές επιλογές για το VDB γιατί έχω ορίσει για τα charts διαφορετικά χρώματα
+  stroke: #d70202 !important;
+}
+
+.ct-vdbchart .ct-point {
+  stroke: #d70202 !important;
+}
+
+// Χρώμα για παλμό - είσοδο
+.ct-octave1 .ct-line {
+  stroke: #4fc2f0 !important;
+}
+
+// Χρώμα για παλμό - έξοδο
+.ct-octave2 .ct-line {
+  stroke: #d70202 !important;
+}
+
+// Ρυθμίσεις για το υπόμνημα
+.ct-chart {
+  .ct-legend {
+    position: relative;
+    z-index: 10;
+    list-style: none;
+    text-align: center;
+
+    li {
+      position: relative;
+      padding-left: 23px;
+      margin-right: 10px;
+      margin-bottom: 3px;
+      cursor: pointer;
+      display: inline-block;
+
+      //The parent selector, &, is a special selector
+      //invented by Sass that’s used in nested selectors
+      //to refer to the outer selector. It makes it possible
+      //to re-use the outer selector in more complex ways, like
+      //adding a pseudo-class or adding a selector before the parent.
+      &:before {
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        left: 0;
+        content: "";
+        border: 3px solid transparent;
+        border-radius: 2px;
+      }
+      .inactive:before {
+        background: transparent;
+      }
+
+      &:nth-child(1)::before {
+        background-color: #4fc2f0;
+      }
+
+      &:nth-child(2)::before {
+        background-color: #d70202;
+      }
+    }
+
+    .ct-legend-inside {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  // Χρώμα για ημίτονο - είσοδο
+  g:not(.ct-grids):not(.ct-labels) g {
+    &:nth-child(1) {
+      .ct-point,
+      .ct-line {
+        stroke: #4fc2f0;
+      }
+    }
+
+    // Χρώμα για ημίτονο - έξοδο
+    &:nth-child(2) {
+      .ct-point,
+      .ct-line {
+        stroke: #d70202;
+      }
+    }
+  }
+}
+
+.box {
+  float: left;
+  height: 12px;
+  width: 12px;
+  margin-bottom: 8px;
+  clear: both;
+}
+
+.red {
+  background-color: #d70202;
+}
+
+.blue {
+  background-color: #4fc2f0;
+}
